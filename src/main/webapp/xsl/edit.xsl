@@ -4,18 +4,46 @@
 
   <xsl:output method="html"/>
 
-  <xsl:template match="/rsp">
-	
-    <xsl:variable name="id" select="entry/@id"/>
-    <xsl:variable name="date" select="entry/date"/>
-    <xsl:variable name="category" select="entry/category"/>
-    <xsl:variable name="description" select="entry/description"/>
-    <xsl:variable name="amount" select="entry/amount"/>
-      <td class="tb-cell"><input type="text" size="10" id="date" value="{$date}" onkeypress="javascript:checkkey('{$id}', event);"/></td>
-      <td class="tb-cell"><input type="text" size="20" id="category" value="{$category}" onkeypress="javascript:checkkey('{$id}', event);"/></td>
-      <td class="tb-cell"><input type="text" size="30" id="description" value="{$description}" onkeypress="javascript:checkkey('{$id}', event);"/></td>
-      <td class="tb-cell-right"><input class="currency" type="text" size="10" id="amount" value="{$amount}" onkeypress="javascript:checkkey('{$id}', event);"/>&#160;<img onclick="deleteItem(this);" src="images/tiny_icon_x.png"/></td>
-  
+  <xsl:template match="/rsp/entry">
+
+      <xsl:apply-templates select="date"/>
+      <xsl:apply-templates select="category"/>
+      <xsl:apply-templates select="description"/>
+      <xsl:apply-templates select="amount"/>
+
+  </xsl:template>
+
+  <xsl:template match="date">
+    <xsl:variable name="attrVal" select="."/>
+    <xsl:variable name="id" select="../@id"/>
+    <div class="tb-cell">
+      <input type="text" size="10" id="date" value="{$attrVal}" onkeypress="javascript:checkkey('{$id}', event);"/>
+    </div>
+  </xsl:template>
+
+  <xsl:template match="category">
+    <xsl:variable name="attrVal" select="."/>
+    <xsl:variable name="id" select="../@id"/>
+    <div class="tb-cell">
+      <input type="text" size="20" id="category" value="{$attrVal}" onkeypress="javascript:checkkey('{$id}', event);"/>
+    </div>
+  </xsl:template>
+
+  <xsl:template match="description">
+    <xsl:variable name="attrVal" select="."/>
+    <xsl:variable name="id" select="../@id"/>
+    <div class="tb-cell">
+    <input type="text" size="30" id="description" value="{$attrVal}" onkeypress="javascript:checkkey('{$id}', event);"/>
+    </div>
+  </xsl:template>
+
+  <xsl:template match="amount">
+    <xsl:variable name="attrVal" select="."/>
+    <xsl:variable name="id" select="../@id"/>
+    <div class="tb-cell-right">
+    <input class="currency" type="text" size="10" id="amount" value="{$attrVal}" onkeypress="javascript:checkkey('{$id}', event);"/>&#160;
+      <img onclick="deleteItem(this);" src="images/tiny_icon_x.png"/>
+    </div>
   </xsl:template>
 
 </xsl:stylesheet>

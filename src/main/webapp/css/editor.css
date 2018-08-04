@@ -75,13 +75,15 @@ textarea {
 }
 
 .search-results-top {
-    width:98%;
     align: center;
     padding-top: 5px;
+    table-layout:fixed;
+    width: 100%;
 }
 
 .search-results {
-    width: 98%;
+    table-layout:fixed;
+    width: 100%;
 }
 
 .search-results-bot {
@@ -92,9 +94,10 @@ textarea {
 .tb-head {
     text-align:left;
     border-bottom: 1px double #96b8bd;
-    width: 200px;
+    width: 150px;
     font-weight: bold;
     color: #96b8bd;
+    overflow: hidden;
 }
 
 .tb-head-center {
@@ -103,6 +106,7 @@ textarea {
     width: 200px;
     font-weight: bold;
     color: #99babf;
+    overflow: hidden;
 }
 
 .tb-head-right {
@@ -111,6 +115,7 @@ textarea {
     width: 200px;
     font-weight: bold;
     color: #96b8bd;
+    overflow: hidden;
 }
 
 .tb-head-left {
@@ -137,18 +142,20 @@ textarea {
 .tb-cell {
     text-align: left;
     white-space: nowrap;
-    width: 200px;
     vertical-align: middle;
     display: table-cell;
     margin: auto;
+    padding: 5px;
+    overflow: hidden;
 }
 
 .tb-cell-right {
     text-align: right;
     white-space: nowrap;
-    width: 200px;
     vertical-align: middle;
     display: table-cell;
+    padding: 5px;
+    overflow: hidden;
 }
 
 .tb-cell-left {

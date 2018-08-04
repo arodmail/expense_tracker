@@ -9,7 +9,11 @@
 
        <div id="table-rows">
            <table class="search-results" cellpadding="5px" cellspacing="0" align="center">
-             <xsl:apply-templates select="rsp/entry"/>
+               <col width="175px"></col>
+               <col width="175px"></col>
+               <col width="350px"></col>
+               <col width="100px"></col>
+               <xsl:apply-templates select="rsp/entry"/>
            </table>
        </div>
        
@@ -35,9 +39,13 @@
 
   <xsl:template match="rsp">
         <table class="search-results-top" cellpadding="5px" cellspacing="0">
-          <tr>
+            <col width="175px"></col>
+            <col width="175px"></col>
+            <col width="350px"></col>
+            <col width="100px"></col>
+            <tr>
 		    <td class="tb-head">
-		      Date
+                &#160;&#160;&#160;&#160;Date
 		    </td>
 		    <td class="tb-head">
 		      Category
@@ -46,7 +54,7 @@
 		      Description
 		    </td>
 		    <td class="tb-head-right">
-		      Amount
+		      Amount&#160;&#160;&#160;&#160;&#160;&#160;
 		    </td>
           </tr>
         </table>
@@ -71,25 +79,31 @@
       <xsl:apply-templates select="amount"/>
     </tr>
   </xsl:template>
-  
-  <xsl:template match="amount">
-    <xsl:variable name="amt" select="."/>
-    <td class="tb-cell-right">
-    	<xsl:value-of select="format-number($amt, '$###,###,###.00')"/>&#160;
-    	<img onclick="deleteItem(this);" src="images/tiny_icon_x.png" title="Delete"/>
-    </td>
-  </xsl:template>
 
-  <xsl:template match="date">
-    <td class="tb-cell">
-    	&#160;&#160;<xsl:value-of select="."/>
-    </td>
-  </xsl:template>
+    <xsl:template match="date">
+        <td class="tb-cell">
+            &#160;&#160;<xsl:value-of select="."/>
+        </td>
+    </xsl:template>
 
-  <xsl:template match="category | description">
-    <td class="tb-cell">
-    	<xsl:value-of select="."/>
-    </td>
-  </xsl:template>
-        
+    <xsl:template match="category">
+        <td class="tb-cell">
+            <xsl:value-of select="."/>
+        </td>
+    </xsl:template>
+
+    <xsl:template match="description">
+        <td class="tb-cell">
+            <xsl:value-of select="."/>
+        </td>
+    </xsl:template>
+
+    <xsl:template match="amount">
+        <xsl:variable name="amt" select="."/>
+        <td class="tb-cell-right">
+            <xsl:value-of select="format-number($amt, '$###,###,###.00')"/>&#160;
+            <img onclick="deleteItem(this);" src="images/tiny_icon_x.png" title="Delete"/>
+        </td>
+    </xsl:template>
+
 </xsl:stylesheet>
