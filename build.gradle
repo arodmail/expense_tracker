@@ -12,6 +12,6 @@ repositories {
 
 dependencies {
     providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
-    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.44'
     compile group: 'xerces', name: 'xercesImpl', version: '2.8.0'
 }
