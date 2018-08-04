@@ -79,9 +79,9 @@ public class DB {
 	private Connection getNewConnection() {
 		try {
 			String jdbcDriver = "com.mysql.jdbc.Driver";
-			String jdbcURL = "jdbc:mysql:///finance";
+			String jdbcURL = "jdbc:mysql:///finance?autoReconnect=true&useSSL=false";
 			String dbUser = "root";
-			String dbPass = "secret";
+			String dbPass = "secret1a";
 			Class.forName(jdbcDriver).newInstance();
 			return DriverManager.getConnection(jdbcURL, dbUser,
 					dbPass);
